@@ -12,9 +12,3 @@
         scrollbar-width: none;  /* Firefox */
   }
 }
-
-body {
-    background-image: url('cloudstithered.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
