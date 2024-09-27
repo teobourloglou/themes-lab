@@ -22,14 +22,24 @@ const data = () => {
 
         /* Categories */
         categoryBgColor: "transparent",
-        categoryBorder: "none",
+        categoryBorderStyle : "none",
+        categoryBorderWidth : "0px",
+        categoryBorderColor : "transparent",
+        get categoryBorder() {
+            return this.categoryBorderWidth + ' ' + this.categoryBorderStyle + ' ' + this.categoryBorderColor;
+        },
         categoryBorderRadius: "0px",
         categoryTitleBgColor: "transparent",
         categoryTitleColor: "#171717",
         categoryTitleSize: "36px",
         categoryTitleAlign: "left",
         categoryTitleTransform: "none",
-        categoryTitleBorderBottom: "none",
+        categoryTitleBorderStyle : "none",
+        categoryTitleBorderWidth : "0px",
+        categoryTitleBorderColor : "transparent",
+        get categoryTitleBorderBottom() {
+            return this.categoryTitleBorderWidth + ' ' + this.categoryTitleBorderStyle + ' ' + this.categoryTitleBorderColor;
+        },
         categoryDescriptionColor: "#171717",
         categoryDescriptionAlign: "left",
         categoryDescriptionTransform: "none",

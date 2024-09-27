@@ -4,18 +4,24 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>🧪 qrumbl.io Theme Lab 🖌️</title>
+        <title>qrumbl.io Theme Lab</title>
 
         <link rel="stylesheet" href="output.css" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="app.js"></script>
     </head>
     <body x-data="data()" x-init="loadData" :style="{ 'background-color' : bgColor }">
         <div class="mx-auto grid-container max-w-7xl">
-            <div class="grid grid-cols-1 lg:grid-cols-2">
-                <div class="p-4">
+            <div class="flex justify-center py-6">
+                <h2 class="text-4xl font-bold text-neutral-900">qrumbl.io Theme Lab 🧪</h2>
+            </div>
+            <div class="grid items-start grid-cols-1 lg:grid-cols-2">
+                <div class="order-2 px-4 py-6 lg:order-1">
                     <h4 class="mt-4 text-xl font-bold">General</h4>
-                    <div class="grid grid-cols-4 gap-3 mt-4">
+                    <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
                             <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="bgColor" name="bgColor">
                             <label class="text-xs font-semibold text-center" for="bgColor">Background Color</label>
@@ -53,7 +59,7 @@
                         </div>
                     </div>
                     <h4 class="mt-4 text-xl font-bold">Category Buttons</h4>
-                    <div class="grid grid-cols-4 gap-3 mt-4">
+                    <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
                             <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryBtnsBgColor" name="categoryBtnsBgColor">
                             <label class="text-xs font-semibold text-center" for="categoryBtnsBgColor">Category Buttons Container Background Color</label>
@@ -84,14 +90,232 @@
                             <label class="text-xs font-semibold text-center" for="categoryBtnBorderColor">Category Button Border Color</label>
                             <input type="text" x-model="categoryBtnBorderColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
-                        <div class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                        <div x-data="{ categoryBtnBorderWidthRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
                             <input type="range" name="categoryBtnBorderWidth" min="0" max="10" value="0" x-model="categoryBtnBorderWidthRaw" @input="categoryBtnBorderWidth = categoryBtnBorderWidthRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
                             <label class="text-xs font-semibold text-center" for="categoryBtnBorderWidth">Category Button Border Width</label>
                             <input type="text" :value="categoryBtnBorderWidth" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
                     </div>
+                    <h4 class="mt-4 text-xl font-bold">Categories</h4>
+                    <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryBgColor" name="categoryBgColor">
+                            <label class="text-xs font-semibold text-center" for="categoryBgColor">Category<br>Background Color</label>
+                            <input type="text" x-model="categoryBgColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryBorderColor" name="categoryBorderColor">
+                            <label class="text-xs font-semibold text-center" for="categoryBorderColor">Category<br>Border Color</label>
+                            <input type="text" x-model="categoryBorderColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ categoryBorderWidthRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="categoryBorderWidth" min="0" max="10" value="0" x-model="categoryBorderWidthRaw" @input="categoryBorderWidth = categoryBorderWidthRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="categoryBorderWidth">Category Border Width</label>
+                            <input type="text" :value="categoryBorderWidth" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ dropdownOpen : false }" class="inline-flex flex-col items-center justify-between p-2 border aspect-square group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <div class="relative inline-block h-[12px] ml-auto text-left">
+                                <button @click="dropdownOpen = !dropdownOpen" type="button" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-transparent text-xs font-semibold text-gray-900  ring-none" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <svg class="w-5 h-5 pt-1 text-neutral-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span x-text="categoryBorderStyle"></span>
+                                </button>
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                    <div class="py-1" role="none">
+                                        <span @click="categoryBorderStyle = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
+                                        <span @click="categoryBorderStyle = 'solid'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Solid</span>
+                                        <span @click="categoryBorderStyle = 'dotted'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Dotted</span>
+                                        <span @click="categoryBorderStyle = 'dashed'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Dashed</span>
+                                        <span @click="categoryBorderStyle = 'double'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Double</span>
+                                        <span @click="categoryBorderStyle = 'groove'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Groove</span>
+                                        <span @click="categoryBorderStyle = 'ridge'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Ridge</span>
+                                        <span @click="categoryBorderStyle = 'inset'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Inset</span>
+                                        <span @click="categoryBorderStyle = 'outset'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Outset</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="text-xs font-semibold text-center" for="categoryBtnBorderWidth">Category<br>Border Style</label>
+                            <input type="text" x-model="categoryBorderStyle" class="w-24 text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none">
+                        </div>
+                        <div x-data="{ categoryBorderRadiusRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="categoryBorderRadius" min="0" max="50" value="0" x-model="categoryBorderRadiusRaw" @input="categoryBorderRadius = categoryBorderRadiusRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="categoryBorderRadius">Category Border Radius</label>
+                            <input type="text" :value="categoryBorderRadius" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryTitleBgColor" name="categoryTitleBgColor">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleBgColor">Category Title<br>Background Color</label>
+                            <input type="text" x-model="categoryTitleBgColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryTitleColor" name="categoryTitleColor">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleColor">Category Title<br>Text Color</label>
+                            <input type="text" x-model="categoryTitleColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryTitleColor" name="categoryTitleColor">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleColor">Category Title<br>Text Color</label>
+                            <input type="text" x-model="categoryTitleColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ categoryTitleSizeRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="categoryTitleSize" min="8" max="64" x-model="categoryTitleSizeRaw" @input="categoryTitleSize = categoryTitleSizeRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleSize">Category Title Size</label>
+                            <input type="text" :value="categoryTitleSize" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ dropdownOpen : false }" class="inline-flex flex-col items-center justify-between p-2 border aspect-square group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <div class="relative inline-block h-[12px] ml-auto text-left">
+                                <button @click="dropdownOpen = !dropdownOpen" type="button" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-transparent text-xs font-semibold text-gray-900  ring-none" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <svg class="w-5 h-5 pt-1 text-neutral-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span x-text="categoryTitleTransform"></span>
+                                </button>
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                    <div class="py-1" role="none">
+                                        <span @click="categoryTitleTransform = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
+                                        <span @click="categoryTitleTransform = 'capitalize'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Capitalize</span>
+                                        <span @click="categoryTitleTransform = 'uppercase'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Uppercase</span>
+                                        <span @click="categoryTitleTransform = 'lowercase'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Lowercase</span>
+                                        <span @click="categoryTitleTransform = 'full-width'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Full Width</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="text-xs font-semibold text-center" for="categoryBtnBorderWidth">Category Title<br>Transform</label>
+                            <input type="text" x-model="categoryTitleTransform" class="w-24 text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <span class="inline-flex isolate h-[12px] justify-between items-center pt-2 w-full">
+                                <button @click="categoryTitleAlign = 'left'" type="button" class="relative inline-flex items-center text-sm font-semibold bg-transparent text-neutral-900 rounded-l-md ring-none hover:bg-neutral-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l10 0" /><path d="M4 18l14 0" /></svg>
+                                </button>
+                                <button @click="categoryTitleAlign = 'center'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 ring-none hover:bg-neutral-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-center"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M8 12l8 0" /><path d="M6 18l12 0" /></svg>
+                                </button>
+                                <button @click="categoryTitleAlign = 'right'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 rounded-r-md ring-none hover:bg-gray-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M10 12l10 0" /><path d="M6 18l14 0" /></svg>
+                                </button>
+                              </span>
+                            <label class="text-xs font-semibold text-center" for="categoryTitleAlign">Category Title<br>Text Align</label>
+                            <input type="text" x-model="categoryTitleAlign" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryTitleBorderColor" name="categoryTitleBorderColor">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleBorderColor">Category Title<br>Border Color</label>
+                            <input type="text" x-model="categoryTitleBorderColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ dropdownOpen : false }" class="inline-flex flex-col items-center justify-between p-2 border aspect-square group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <div class="relative inline-block h-[12px] ml-auto text-left">
+                                <button @click="dropdownOpen = !dropdownOpen" type="button" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-transparent text-xs font-semibold text-gray-900  ring-none" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <svg class="w-5 h-5 pt-1 text-neutral-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span x-text="categoryTitleBorderStyle"></span>
+                                </button>
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                    <div class="py-1" role="none">
+                                        <span @click="categoryTitleBorderStyle = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
+                                        <span @click="categoryTitleBorderStyle = 'solid'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Solid</span>
+                                        <span @click="categoryTitleBorderStyle = 'dotted'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Dotted</span>
+                                        <span @click="categoryTitleBorderStyle = 'dashed'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Dashed</span>
+                                        <span @click="categoryTitleBorderStyle = 'double'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Double</span>
+                                        <span @click="categoryTitleBorderStyle = 'groove'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Groove</span>
+                                        <span @click="categoryTitleBorderStyle = 'ridge'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Ridge</span>
+                                        <span @click="categoryTitleBorderStyle = 'inset'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Inset</span>
+                                        <span @click="categoryTitleBorderStyle = 'outset'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Outset</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="text-xs font-semibold text-center" for="categoryBtnBorderWidth">Category Title<br>Border Style</label>
+                            <input type="text" x-model="categoryTitleBorderStyle" class="w-24 text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none">
+                        </div>
+                        <div x-data="{ categoryTitleBorderWidthRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="categoryTitleBorderWidth" min="0" max="10" value="0" x-model="categoryTitleBorderWidthRaw" @input="categoryTitleBorderWidth = categoryTitleBorderWidthRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="categoryTitleBorderWidth">Category Title Border Width</label>
+                            <input type="text" :value="categoryTitleBorderWidth" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="categoryDescriptionColor" name="categoryDescriptionColor">
+                            <label class="text-xs font-semibold text-center" for="categoryDescriptionColor">Category Description<br>Text Color</label>
+                            <input type="text" x-model="categoryDescriptionColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <span class="inline-flex isolate h-[12px] justify-between items-center pt-2 w-full">
+                                <button @click="categoryDescriptionAlign = 'left'" type="button" class="relative inline-flex items-center text-sm font-semibold bg-transparent text-neutral-900 rounded-l-md ring-none hover:bg-neutral-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l10 0" /><path d="M4 18l14 0" /></svg>
+                                </button>
+                                <button @click="categoryDescriptionAlign = 'center'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 ring-none hover:bg-neutral-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-center"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M8 12l8 0" /><path d="M6 18l12 0" /></svg>
+                                </button>
+                                <button @click="categoryDescriptionAlign = 'right'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 rounded-r-md ring-none hover:bg-gray-50 focus:z-10">
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M10 12l10 0" /><path d="M6 18l14 0" /></svg>
+                                </button>
+                              </span>
+                            <label class="text-xs font-semibold text-center" for="categoryDescriptionAlign">Category Description<br>Text Align</label>
+                            <input type="text" x-model="categoryDescriptionAlign" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ dropdownOpen : false }" class="inline-flex flex-col items-center justify-between p-2 border aspect-square group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <div class="relative inline-block h-[12px] ml-auto text-left">
+                                <button @click="dropdownOpen = !dropdownOpen" type="button" class="inline-flex w-full items-center justify-center gap-x-1.5 rounded-md bg-transparent text-xs font-semibold text-gray-900  ring-none" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                                    <svg class="w-5 h-5 pt-1 text-neutral-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span x-text="categoryDescriptionTransform"></span>
+                                </button>
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                    <div class="py-1" role="none">
+                                        <span @click="categoryDescriptionTransform = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
+                                        <span @click="categoryDescriptionTransform = 'capitalize'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Capitalize</span>
+                                        <span @click="categoryDescriptionTransform = 'uppercase'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Uppercase</span>
+                                        <span @click="categoryDescriptionTransform = 'lowercase'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Lowercase</span>
+                                        <span @click="categoryDescriptionTransform = 'full-width'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Full Width</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="text-xs font-semibold text-center" for="categoryBtnBorderWidth">Category Description<br>Transform</label>
+                            <input type="text" x-model="categoryDescriptionTransform" class="w-24 text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none">
+                        </div>
+                        <div x-data="{ categoryBodyPaddingRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="categoryBodyPadding" min="0" max="30" x-model="categoryBodyPaddingRaw" @input="categoryBodyPadding = categoryBodyPaddingRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="categoryBodyPadding">Category Body Padding</label>
+                            <input type="text" :value="categoryBodyPadding" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                    </div>
+                    <h4 class="mt-4 text-xl font-bold">Products</h4>
+                    <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="productBgColor" name="productBgColor">
+                            <label class="text-xs font-semibold text-center" for="productBgColor">Product<br>Background Color</label>
+                            <input type="text" x-model="productBgColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ productBorderRadiusRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="productBorderRadius" min="0" max="50" x-model="productBorderRadiusRaw" @input="productBorderRadius = productBorderRadiusRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="productBorderRadius">Product Border Radius</label>
+                            <input type="text" :value="productBorderRadius" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="productTitleColor" name="productTitleColor">
+                            <label class="text-xs font-semibold text-center" for="productTitleColor">Product<br>Title Color</label>
+                            <input type="text" x-model="productTitleColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="productDescriptionColor" name="productDescriptionColor">
+                            <label class="text-xs font-semibold text-center" for="productDescriptionColor">Product<br>Description Color</label>
+                            <input type="text" x-model="productDescriptionColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
+                            <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="productPriceColor" name="productPriceColor">
+                            <label class="text-xs font-semibold text-center" for="productPriceColor">Product<br>Price Color</label>
+                            <input type="text" x-model="productPriceColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                        <div x-data="{ productImageBorderRadiusRaw : '0' }" class="inline-flex flex-col items-center justify-between col-span-2 p-2 border group rounded-2xl bg-neutral-100 border-neutral-300">
+                            <input type="range" name="productImageBorderRadius" min="0" max="50" x-model="productImageBorderRadiusRaw" @input="productImageBorderRadius = productImageBorderRadiusRaw + 'px'" class="duration-500 opacity-0 group-hover:opacity-100">
+                            <label class="text-xs font-semibold text-center" for="productImageBorderRadius">Product Image Border Radius</label>
+                            <input type="text" :value="productImageBorderRadius" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
+                        </div>
+                    </div>
                 </div>
-                <div x-data="{ imagesOn : true }" class="sticky top-0 flex flex-col items-center justify-center min-h-screen gap-y-4">
+                <div x-data="{ imagesOn : true }" class="top-0 flex flex-col items-center justify-center order-1 max-h-screen pt-5 lg:sticky lg:order-2 gap-y-4">
                     <div class="flex flex-col items-center gap-y-2">
                         <span class="text-sm font-medium text-neutral-900">Images</span>
                         <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
@@ -179,24 +403,24 @@
                                         <h1 :style="{ 'background-color' : categoryTitleBgColor, 'color' : categoryTitleColor, 'font-size' : categoryTitleSize, 'text-align' : categoryTitleAlign, 'text-transform' : categoryTitleTransform, 'border-bottom' : categoryTitleBorderBottom }" class="font-bold tracking-tight">Appetizers</h1>
                                         <p :style="{ 'color' : categoryDescriptionColor, 'text-align' : categoryDescriptionAlign, 'text-transform' : categoryDescriptionTransform, 'font-style' : categoryDescriptionStyle }" class="my-3 text-base">For the Brave</p>
                                         <ul :style="{ 'padding' : categoryBodyPadding }" class="flex flex-col gap-2">
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1619604107617-d46fffad3ccb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1619604107617-d46fffad3ccb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Invisible Nachos</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5 ">The nachos you can’t see, but can totally taste.</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">6.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZnJpZXN8ZW58MHx8MHx8fDA%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1598679253544-2c97992403ea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZnJpZXN8ZW58MHx8MHx8fDA%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Lazy Man’s Fries</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5 ">A bucket of fries. Find the ketchup yourself!</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">4.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1676976198546-18595f0796f0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1676976198546-18595f0796f0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Garlic Bread, Hold the Vampires</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5 ">Keeps vampires at bay for at least 48 hours.</p>
@@ -209,16 +433,16 @@
                                         <h1 :style="{ 'background-color' : categoryTitleBgColor, 'color' : categoryTitleColor, 'font-size' : categoryTitleSize, 'text-align' : categoryTitleAlign, 'text-transform' : categoryTitleTransform, 'border-bottom' : categoryTitleBorderBottom }" class="font-bold tracking-tight">Main Course</h1>
                                         <p :style="{ 'color' : categoryDescriptionColor, 'text-align' : categoryDescriptionAlign, 'text-transform' : categoryDescriptionTransform, 'font-style' : categoryDescriptionStyle }" class="my-3 text-base">Where Things Get Weird</p>
                                         <ul :style="{ 'padding' : categoryBodyPadding }" class="flex flex-col gap-2">
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Bigfoot Burger</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">So big, even Bigfoot couldn’t finish it. Secret sauce included.</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">12.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://plus.unsplash.com/premium_photo-1661730329741-b3bf77019b39?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://plus.unsplash.com/premium_photo-1661730329741-b3bf77019b39?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Taco ‘Bout It</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Tacos filled with meat... and emotions. Served with therapy salsa.</p>
@@ -231,24 +455,24 @@
                                         <h1 :style="{ 'background-color' : categoryTitleBgColor, 'color' : categoryTitleColor, 'font-size' : categoryTitleSize, 'text-align' : categoryTitleAlign, 'text-transform' : categoryTitleTransform, 'border-bottom' : categoryTitleBorderBottom }" class="font-bold tracking-tight">Desserts</h1>
                                         <p :style="{ 'color' : categoryDescriptionColor, 'text-align' : categoryDescriptionAlign, 'text-transform' : categoryDescriptionTransform, 'font-style' : categoryDescriptionStyle }" class="my-3 text-base">Don't Ask, Just Eat</p>
                                         <ul :style="{ 'padding' : categoryBodyPadding }" class="flex flex-col gap-2">
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1695088957420-c3b97d1f1138?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1695088957420-c3b97d1f1138?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Mysterious Cheesecake</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Cheesecake with a surprise flavor. Your guess is as good as ours</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">5.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hvY29sYXRlfGVufDB8fDB8fHww" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hvY29sYXRlfGVufDB8fDB8fHww" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Chocolate Volcano of Regret</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Molten chocolate cake. Delicious, but you’ll regret the calories.</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">6.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1628815756611-7b1b8f68d460?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlY3JlYW0lMjBzYW5kd2ljaHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1628815756611-7b1b8f68d460?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aWNlY3JlYW0lMjBzYW5kd2ljaHxlbnwwfHwwfHx8MA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Ice Cream Sandwich...Wait, What?</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Ice cream as the "bread." Filling? Who knows.</p>
@@ -261,24 +485,24 @@
                                         <h1 :style="{ 'background-color' : categoryTitleBgColor, 'color' : categoryTitleColor, 'font-size' : categoryTitleSize, 'text-align' : categoryTitleAlign, 'text-transform' : categoryTitleTransform, 'border-bottom' : categoryTitleBorderBottom }" class="font-bold tracking-tight">Drinks</h1>
                                         <p :style="{ 'color' : categoryDescriptionColor, 'text-align' : categoryDescriptionAlign, 'text-transform' : categoryDescriptionTransform, 'font-style' : categoryDescriptionStyle }" class="my-3 text-base">Stay Hydrated</p>
                                         <ul :style="{ 'padding' : categoryBodyPadding }" class="flex flex-col gap-2">
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1523371054106-bbf80586c38c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1523371054106-bbf80586c38c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Shocking Lemonade</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Lemonade with a jolt of electric blue energy.</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">3.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1436491911682-72ab1d398f59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1436491911682-72ab1d398f59?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Bottomless Pit of Coffee</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Endless refills. May cause extreme productivity.</p>
                                                     <p :style="{ 'color' : productPriceColor }" class="block text-lg font-bold">2.99€</p>
                                                 </div>
                                             </li>
-                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex p-3 gap-x-4">
-                                                <img x-show="imagesOn" :style="{ 'border-radius' : productBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1514995428455-447d4443fa7f?q=80&w=1807&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                            <li :style="{ 'background-color' : productBgColor, 'border-radius' : productBorderRadius }" class="flex overflow-hidden gap-x-4">
+                                                <img x-show="imagesOn" :style="{ 'border-radius' : productImageBorderRadius }" class="object-cover w-24 h-24 aspect-square" src="https://images.unsplash.com/photo-1514995428455-447d4443fa7f?q=80&w=1807&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                                 <div class="grow">
                                                     <p :style="{ 'color' : productTitleColor }" class="text-lg font-semibold leading-6">Suspicious Smoothie</p>
                                                     <p :style="{ 'color' : productDescriptionColor }" class="flex mt-1 text-sm leading-5">Green, healthy-ish, and definitely a mystery.</p>
