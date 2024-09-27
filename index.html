@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Theme Lab</title>
+        <title>Themes Lab</title>
 
         <link rel="stylesheet" href="output.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -13,13 +13,13 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="app.js"></script>
     </head>
-    <body x-data="data()">
-        <div class="max-h-screen mx-auto overflow-scroll grid-container max-w-7xl lg:overflow-auto">
-            <div class="flex justify-center py-6 h-[10vh]">
-                <h2 class="text-3xl font-bold text-neutral-900">Theme Lab 🧪</h2>
-            </div>
-            <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-2">
-                <div class="order-2 max-h-[90vh] overflow-scroll px-4 py-6 lg:order-1">
+    <body x-data="data()" class="">
+        <div class="mx-auto grid-container max-w-7xl">
+            <div class="grid grid-cols-1 gap-4 overflow-scroll lg:grid-cols-2">
+                <div class="flex justify-center py-6 h-[10vh] col-span-full">
+                    <h2 class="text-3xl font-bold text-neutral-900">Themes Lab</h2>
+                </div>
+                <div class="order-2 max-h-[90vh] px-4 py-6 lg:order-1">
                     <h4 class="mt-4 text-xl font-bold">General</h4>
                     <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
@@ -195,7 +195,7 @@
                                 <button @click="categoryTitleAlign = 'right'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 rounded-r-md ring-none hover:bg-neutral-50 focus:z-10">
                                     <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M10 12l10 0" /><path d="M6 18l14 0" /></svg>
                                 </button>
-                              </span>
+                                </span>
                             <label class="text-xs font-semibold text-center" for="categoryTitleAlign">Category Title<br>Text Align</label>
                             <input type="text" x-model="categoryTitleAlign" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
@@ -250,7 +250,7 @@
                                 <button @click="categoryDescriptionAlign = 'right'" type="button" class="relative inline-flex items-center -ml-px text-sm font-semibold bg-transparent text-neutral-900 rounded-r-md ring-none hover:bg-neutral-50 focus:z-10">
                                     <svg  xmlns="http://www.w3.org/2000/svg"  width="18"  height="18"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-align-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M10 12l10 0" /><path d="M6 18l14 0" /></svg>
                                 </button>
-                              </span>
+                                </span>
                             <label class="text-xs font-semibold text-center" for="categoryDescriptionAlign">Category Description<br>Text Align</label>
                             <input type="text" x-model="categoryDescriptionAlign" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
@@ -314,7 +314,7 @@
                             <input type="text" :value="productImageBorderRadius" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
                     </div>
-                    <div class="flex items-center justify-between mt-8">
+                    <div class="flex flex-col items-center justify-between gap-4 my-8 lg:items-end lg:flex-row">
                         <div>
                             <label for="themeName" class="block text-sm font-medium leading-6 text-neutral-900">Theme Name</label>
                             <div class="mt-2">
@@ -328,16 +328,16 @@
                     <div class="flex flex-col items-center gap-y-2">
                         <span class="text-sm font-medium text-neutral-900">Images</span>
                         <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-neutral-200" -->
-                        <button @click="imagesOn = !imagesOn" type="button" :class="imagesOn ? 'bg-gray-900' : 'bg-neutral-200'" class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer bg-neutral-200 w-11 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2" role="switch" aria-checked="false">
-                          <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
-                          <span aria-hidden="true" :class="imagesOn ? 'translate-x-5' : 'translate-x-0'" class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow pointer-events-none ring-0"></span>
+                        <button @click="imagesOn = !imagesOn" type="button" :class="imagesOn ? 'bg-neutral-900' : 'bg-neutral-200'" class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer bg-neutral-200 w-11 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2" role="switch" aria-checked="false">
+                            <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                            <span aria-hidden="true" :class="imagesOn ? 'translate-x-5' : 'translate-x-0'" class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow pointer-events-none ring-0"></span>
                         </button>
-                      </div>
-                    <svg viewBox="0 0 366 729" role="img" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl">
+                        </div>
+                    <svg viewBox="0 0 366 729" role="img" class="mx-auto w-[22.875rem] max-w-full drop-shadow-xl overlfow-hidden">
                         <defs>
-                          <clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
+                            <clipPath id="2ade4387-9c63-4fc4-b754-10e687a0d332">
                             <rect width="316" height="684" rx="36" />
-                          </clipPath>
+                            </clipPath>
                         </defs>
                         <path fill="#4B5563" d="M363.315 64.213C363.315 22.99 341.312 1 300.092 1H66.751C25.53 1 3.528 22.99 3.528 64.213v44.68l-.857.143A2 2 0 0 0 1 111.009v24.611a2 2 0 0 0 1.671 1.973l.95.158a2.26 2.26 0 0 1-.093.236v26.173c.212.1.398.296.541.643l-1.398.233A2 2 0 0 0 1 167.009v47.611a2 2 0 0 0 1.671 1.973l1.368.228c-.139.319-.314.533-.511.653v16.637c.221.104.414.313.56.689l-1.417.236A2 2 0 0 0 1 237.009v47.611a2 2 0 0 0 1.671 1.973l1.347.225c-.135.294-.302.493-.49.607v377.681c0 41.213 22 63.208 63.223 63.208h95.074c.947-.504 2.717-.843 4.745-.843l.141.001h.194l.086-.001 33.704.005c1.849.043 3.442.37 4.323.838h95.074c41.222 0 63.223-21.999 63.223-63.212v-394.63c-.259-.275-.48-.796-.63-1.47l-.011-.133 1.655-.276A2 2 0 0 0 366 266.62v-77.611a2 2 0 0 0-1.671-1.973l-1.712-.285c.148-.839.396-1.491.698-1.811V64.213Z" />
                         <path fill="#343E4E" d="M16 59c0-23.748 19.252-43 43-43h246c23.748 0 43 19.252 43 43v615c0 23.196-18.804 42-42 42H58c-23.196 0-42-18.804-42-42V59Z" />
@@ -366,22 +366,22 @@
                                     </nav>
                                     <div role="dialog" aria-modal="true">
                                         <div x-show="menuOpen" :style="{ 'background-color' : mobileMenuBgColor }" class="fixed inset-y-0 right-0 z-10 w-full p-6 overflow-y-auto sm:max-w-sm sm:ring-1 sm:ring-neutral-900/10">
-                                          <div class="flex items-center justify-end">
+                                            <div class="flex items-center justify-end">
                                             <button @click="menuOpen = false" :style="{ 'color' : mobileMenuX }" type="button" class="-m-2.5 rounded-md p-2.5">
                                                 <svg xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
                                             </button>
-                                          </div>
-                                          <div class="flow-root mt-6">
-                                            <div :style="{ 'border-color' : mobileMenuDivideColor }" class="-my-6 divide-y">
-                                              <div class="py-6 space-y-2">
-                                               <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">Menu</a>
-                                               <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">About us</a>
-                                               <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">Feedback</a>
-                                              </div>
                                             </div>
-                                          </div>
+                                            <div class="flow-root mt-6">
+                                            <div :style="{ 'border-color' : mobileMenuDivideColor }" class="-my-6 divide-y">
+                                                <div class="py-6 space-y-2">
+                                                <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">Menu</a>
+                                                <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">About us</a>
+                                                <a :style="{ 'color' : headerMobileItemsColor }" href="#" class="block px-3 py-2 -mx-3 text-base font-semibold leading-7 rounded-lg">Feedback</a>
+                                                </div>
+                                            </div>
+                                            </div>
                                         </div>
-                                      </div>
+                                        </div>
                                 </header>
                                 <div :style="{ 'background-color' : categoryBtnsBgColor }" class="z-10 flex justify-center w-full py-4">
                                     <ul class="flex justify-start w-11/12 gap-4 overflow-scroll">
@@ -523,9 +523,9 @@
                                 </div>
                                 <div class="flex justify-center py-4">
                                     <p :style="{ 'color' : copyrightText }" class="text-sm">© qrumbl.io. All rights reserved.</p>
-                                 </div>
+                                    </div>
                         </foreignObject>
-                      </svg>
+                        </svg>
                 </div>
 
             </div>
