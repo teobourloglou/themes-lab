@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>qrumbl.io Theme Lab</title>
+        <title>Theme Lab</title>
 
         <link rel="stylesheet" href="output.css" />
         <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -13,13 +13,13 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="app.js"></script>
     </head>
-    <body x-data="data()" x-init="loadData" :style="{ 'background-color' : bgColor }">
-        <div class="mx-auto grid-container max-w-7xl">
-            <div class="flex justify-center py-6">
-                <h2 class="text-4xl font-bold text-neutral-900">qrumbl.io Theme Lab 🧪</h2>
+    <body x-data="data()" x-init="loadData">
+        <div class="max-h-screen mx-auto overflow-scroll grid-container max-w-7xl lg:overflow-auto">
+            <div class="flex justify-center py-6 h-[10vh]">
+                <h2 class="text-3xl font-bold text-neutral-900">Theme Lab 🧪</h2>
             </div>
-            <div class="grid items-start grid-cols-1 lg:grid-cols-2">
-                <div class="order-2 px-4 py-6 lg:order-1">
+            <div class="grid items-start grid-cols-1 gap-4 lg:grid-cols-2">
+                <div class="order-2 max-h-[90vh] overflow-scroll px-4 py-6 lg:order-1">
                     <h4 class="mt-4 text-xl font-bold">General</h4>
                     <div class="grid grid-cols-2 gap-3 mt-4 md:grid-cols-3 lg:grid-cols-4">
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
@@ -34,12 +34,12 @@
                         </div>
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
                             <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="headerMobileItemsColor" name="headerMobileItemsColor">
-                            <label class="text-xs font-semibold text-center" for="headerMobileItemsColor">Header<br>Items Color</label>
+                            <label class="text-xs font-semibold text-center" for="headerMobileItemsColor">Header<br>Items Color<br>(Click menu icon)</label>
                             <input type="text" x-model="headerMobileItemsColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
                             <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="mobileMenuBgColor" name="mobileMenuBgColor">
-                            <label class="text-xs font-semibold text-center" for="mobileMenuBgColor">Menu<br>Background Color</label>
+                            <label class="text-xs font-semibold text-center" for="mobileMenuBgColor">Menu<br>Background Color<br>(Click menu icon)</label>
                             <input type="text" x-model="mobileMenuBgColor" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
                             <input class="ml-auto border border-black rounded-full aspect-square size-3" type="color" x-model="mobileMenuX" name="mobileMenuX">
-                            <label class="text-xs font-semibold text-center" for="mobileMenuX">Menu<br>X Button Color</label>
+                            <label class="text-xs font-semibold text-center" for="mobileMenuX">Menu<br>X Button Color<br>(Click menu icon)</label>
                             <input type="text" x-model="mobileMenuX" class="text-sm tracking-wide text-center transition-opacity duration-500 bg-transparent border-b-2 opacity-0 text-neutral-500 border-neutral-500 group-hover:opacity-100 focus:outline-none w-14">
                         </div>
                         <div class="inline-flex flex-col items-center justify-between p-2 border group rounded-2xl bg-neutral-100 aspect-square border-neutral-300">
@@ -121,7 +121,7 @@
                                     </svg>
                                     <span x-text="categoryBorderStyle"></span>
                                 </button>
-                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer w-30 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
                                     <div class="py-1" role="none">
                                         <span @click="categoryBorderStyle = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
                                         <span @click="categoryBorderStyle = 'solid'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Solid</span>
@@ -171,7 +171,7 @@
                                     </svg>
                                     <span x-text="categoryTitleTransform"></span>
                                 </button>
-                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer w-30 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
                                     <div class="py-1" role="none">
                                         <span @click="categoryTitleTransform = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
                                         <span @click="categoryTitleTransform = 'capitalize'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Capitalize</span>
@@ -212,7 +212,7 @@
                                     </svg>
                                     <span x-text="categoryTitleBorderStyle"></span>
                                 </button>
-                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer w-30 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
                                     <div class="py-1" role="none">
                                         <span @click="categoryTitleBorderStyle = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
                                         <span @click="categoryTitleBorderStyle = 'solid'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Solid</span>
@@ -262,7 +262,7 @@
                                     </svg>
                                     <span x-text="categoryDescriptionTransform"></span>
                                 </button>
-                                <div x-show="dropdownOpen" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
+                                <div x-show="dropdownOpen" class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg cursor-pointer w-30 ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" @click.away="dropdownOpen = false">
                                     <div class="py-1" role="none">
                                         <span @click="categoryDescriptionTransform = 'none'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">None</span>
                                         <span @click="categoryDescriptionTransform = 'capitalize'; dropdownOpen = false" class="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-200">Capitalize</span>

@@ -3,5 +3,7 @@
 @tailwind utilities;
 
 body {
-    background-image: url('grain.png');
+    background-image: url('cloudstithered.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
